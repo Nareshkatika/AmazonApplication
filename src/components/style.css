@@ -1,0 +1,80 @@
+
+.FiltesBox{
+    height: 200px;
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    overflow: auto;
+    padding: 10px;
+    position:fixed;
+}
+
+
+
+.similarProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+}
+
+.arrangeEl34{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+
+.listText{
+    color: white;
+    text-decoration: none; 
+}
+
+.cartArrangeEl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: gray;
+    margin: 10px;
+    width: 800px;
+    padding: 10px;
+}
+
+.listEl{
+    list-style-type: none;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.arrangeEl2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.arrangeEl1{
+    background-color: green;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
+    width: 100%;
+    position: fixed;
+   margin: 0;
+   padding: 0;
+    top:0;
+    
+}
+
+.imageEl{
+    height: 200px;
+}

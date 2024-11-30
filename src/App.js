@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import './App.css'
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+const NotFound =React.lazy(()=>import('./components/NotFound'))
+const ProductItems =React.lazy(()=>import('./components/ProductItems'))
+const Cart =React.lazy(()=>import('./components/Cart'))
+const LoginPage =React.lazy(()=>import('./components/LoginPage'))
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const Home=React.lazy(()=>import('./components/Home'))
+const Header=React.lazy(()=>import('./components/Header'))
+const Contacts=React.lazy(()=>import('./components/Contacts'))
+const ProtectedRoute=React.lazy(()=>import('./components/ProtectedRoute'))
+
+
+
+const App=()=>{
+
+  return(
+    <div>
+        <Router>
+          <React.Suspense fallback={<p>Loading....</p>} >
+          <Routes>
+            <Route path="/" element={<div> <ProtectedRoute><Header/> <Home/> </ProtectedRoute></div>}  />
+            <Route path="/contacts" element={<div> <ProtectedRoute><Header/> <Contacts/></ProtectedRoute> </div>}  />
+            <Route path='/products/:id' element={<div> <ProtectedRoute><Header/><ProductItems/></ProtectedRoute> </div>} />
+            <Route path='*' element={<div> <ProtectedRoute><Header/><NotFound/></ProtectedRoute> </div>} />
+            <Route path='/cart' element={<div> <ProtectedRoute><Header/><Cart/></ProtectedRoute> </div>} />
+            <Route path="/login" element={<LoginPage/>} />
+          </Routes>
+          </React.Suspense>
+        </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
